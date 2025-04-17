@@ -1,17 +1,21 @@
 workflows:
-  ios-build:
-    name: iOS Build Workflow
-    platform: ios
-    macos: true
+  ios-release-build:
+    name: iOS Release Build
+    max_build_duration: 45
     environment:
+      xcode: latest
+      cocoapods: default
       vars:
-        - key: value  # Aquí puedes agregar variables si es necesario
+        XCODE_SCHEME: "TraccarManager"
+        PROJECT_PATH: "TraccarManager.xcodeproj"
     scripts:
-      - echo "Instalando dependencias..."
-      - cd ios
-      - pod install
-      - cd ..
+      - name: Install CocoaPods
+        script: |
+          pod install
+      - name: Build .ipa with Xcode
+        script: |
+          xcodebuild -project "$PROJECT_PATH" -scheme "$XCODE_SCHEME" -sdk iphoneos -configuration Release archive -archivePath $CM_BUILD_DIR/TraccarManager.xcarchive
+          xcodebuild -exportArchive -archivePath $CM_BUILD_DIR/TraccarManager.xcarchive -exportOptionsPlist exportOptions.plist -exportPath $CM_BUILD_DIR/build
     artifacts:
-      - build/ios/ipa  # Guarda el archivo IPA resultante
-    targets:
-      - ios
+      - build/**/*.ipa
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
