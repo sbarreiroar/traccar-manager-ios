@@ -44,7 +44,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ckZ-jN-Z0U">
                                         <rect key="frame" x="20" y="229" width="335" height="30"/>
-                                        <state key="normal" title="Start"/>
+                                        <state key="normal" title="INICIAR"/>
                                         <connections>
                                             <action selector="onStart:" destination="Q9M-Zf-myH" eventType="touchUpInside" id="RiW-Jv-7UH"/>
                                         </connections>
@@ -55,7 +55,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="https://demo.traccar.org" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WfE-A8-W7r" userLabel="ServerField">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="https://server1.rastreo.ar" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WfE-A8-W7r" userLabel="ServerField">
                                         <rect key="frame" x="86.5" y="81.5" width="272.5" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -68,7 +68,7 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6K-5s-OQ0" userLabel="Info">
                                         <rect key="frame" x="16" y="131.5" width="343" height="81.5"/>
-                                        <string key="text">This screen will be shown only once. After you click the button, server address will be saved in preferences. To change it, clear app data from application manager.</string>
+                                        <string key="text">Esta pantalla solo se mostrará una vez. Tras hacer clic en el botón, la dirección del servidor se guardará en las preferencias. Para cambiarla, borre los datos de la aplicación desde el administrador de aplicaciones..</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
