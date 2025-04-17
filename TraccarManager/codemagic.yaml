@@ -1,0 +1,17 @@
+workflows:
+  ios-build:
+    name: iOS Build Workflow
+    platform: ios
+    macos: true
+    environment:
+      vars:
+        - key: value  # Aquí puedes agregar variables si es necesario
+    scripts:
+      - echo "Instalando dependencias..."
+      - cd ios
+      - pod install
+      - cd ..
+    artifacts:
+      - build/ios/ipa  # Guarda el archivo IPA resultante
+    targets:
+      - ios
