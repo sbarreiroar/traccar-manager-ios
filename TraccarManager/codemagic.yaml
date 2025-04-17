@@ -1,21 +1,15 @@
 workflows:
-  ios-release-build:
-    name: iOS Release Build
-    max_build_duration: 45
+  ios-basic:
+    name: iOS Basic Build
     environment:
       xcode: latest
-      cocoapods: default
-      vars:
-        XCODE_SCHEME: "TraccarManager"
-        PROJECT_PATH: "TraccarManager.xcodeproj"
     scripts:
-      - name: Install CocoaPods
+      - name: Build for device
         script: |
-          pod install
-      - name: Build .ipa with Xcode
-        script: |
-          xcodebuild -project "$PROJECT_PATH" -scheme "$XCODE_SCHEME" -sdk iphoneos -configuration Release archive -archivePath $CM_BUILD_DIR/TraccarManager.xcarchive
-          xcodebuild -exportArchive -archivePath $CM_BUILD_DIR/TraccarManager.xcarchive -exportOptionsPlist exportOptions.plist -exportPath $CM_BUILD_DIR/build
+          xcodebuild -project TraccarManager.xcodeproj \
+                     -scheme TraccarManager \
+                     -sdk iphoneos \
+                     -configuration Release \
+                     clean build
     artifacts:
-      - build/**/*.ipa
-      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
+      - build/**/*.app
