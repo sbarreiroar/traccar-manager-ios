@@ -1,17 +1,15 @@
 workflows:
-  ios-build:
-    name: iOS Build Workflow
-    platform: ios
-    macos: true
+  ios-basic:
+    name: iOS Basic Build
     environment:
-      vars:
-        - key: value  # Aquí puedes agregar variables si es necesario
+      xcode: latest
     scripts:
-      - echo "Instalando dependencias..."
-      - cd ios
-      - pod install
-      - cd ..
+      - name: Build TraccarManager
+        script: |
+          xcodebuild -project TraccarManager.xcodeproj \
+                     -scheme TraccarManager \
+                     -sdk iphoneos \
+                     -configuration Release \
+                     build
     artifacts:
-      - build/ios/ipa  # Guarda el archivo IPA resultante
-    targets:
-      - ios
+      - build/**/*.app
